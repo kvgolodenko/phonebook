@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="63afe1bd-ae8f-448d-9ecd-3255ea419735" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="composer.json" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1hDgp47Od7MM9vQUKK704eQonAk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views" />
+      <recent name="$PROJECT_DIR$/src/interface" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63afe1bd-ae8f-448d-9ecd-3255ea419735" name="Default Changelist" comment="" />
+      <created>1599551256090</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599551256090</updated>
+      <workItem from="1599551257214" duration="1173000" />
+      <workItem from="1599590200941" duration="22495000" />
+      <workItem from="1599849941495" duration="2556000" />
+      <workItem from="1600063356895" duration="24537000" />
+      <workItem from="1600155674127" duration="3779000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="342" y="193" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599552900654">
+      <screen x="0" y="23" width="1280" height="722" />
+    </state>
+    <state x="342" y="193" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.722@0.23.1280.722" timestamp="1599552900654" />
+    <state x="365" y="166" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599816259033">
+      <screen x="0" y="23" width="1280" height="722" />
+    </state>
+    <state x="365" y="166" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.722@0.23.1280.722" timestamp="1599816259033" />
+    <state x="378" y="146" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600159591455">
+      <screen x="0" y="23" width="1280" height="723" />
+    </state>
+    <state x="378" y="146" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.723@0.23.1280.723" timestamp="1600159591455" />
+    <state x="366" y="117" key="NewPhpClassDialog" timestamp="1600158911323">
+      <screen x="0" y="23" width="1280" height="724" />
+    </state>
+    <state x="366" y="117" key="NewPhpClassDialog/0.23.1280.722@0.23.1280.722" timestamp="1600065061435" />
+    <state x="366" y="117" key="NewPhpClassDialog/0.23.1280.724@0.23.1280.724" timestamp="1600158911323" />
+    <state x="459" y="314" key="NewPhpFileDialog" timestamp="1599830701872">
+      <screen x="0" y="23" width="1280" height="722" />
+    </state>
+    <state x="459" y="314" key="NewPhpFileDialog/0.23.1280.722@0.23.1280.722" timestamp="1599830701872" />
+    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1600076236068">
+      <screen x="0" y="23" width="1280" height="723" />
+    </state>
+    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1280.722@0.23.1280.722" timestamp="1599808203813" />
+    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1280.723@0.23.1280.723" timestamp="1600076236068" />
+  </component>
+</project>

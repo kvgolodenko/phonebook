@@ -1,0 +1,20 @@
+{
+  "name": "kirill/phonebook",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "kirillgolodenko",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "twbs/bootstrap": "^4.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

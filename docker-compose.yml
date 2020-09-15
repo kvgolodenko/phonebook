@@ -1,0 +1,33 @@
+version: '2'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: ohtsq_nginx
+    ports:
+      - "8084:80"
+      - "4443:443"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./:/var/app
+      - ./logs:/var/log/nginx
+    links:
+      - php
+  php:
+    build: .
+    links:
+      - pgsql
+    volumes:
+      - ./:/var/app
+  pgsql:
+    image: postgres:11
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./pgsql:/var/lib/pgsql
+    environment:
+      POSTGRES_USER: ohtsq
+      POSTGRES_PASSWORD: secret
+networks:
+  default:
+    external:
+      name: "${OHT_DOCKER_NETWORK}"
