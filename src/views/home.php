@@ -3,7 +3,7 @@
 
 <h2>My contacts</h2>
 
-<table class="table">
+<table id="userlist" class="table">
     <thead>
     <tr>
         <th scope="col">#</th>
@@ -16,15 +16,18 @@
 
     <tbody>
     <?php
+    $i = 1;
     foreach ($view['users'] as $user) { ?>
         <tr>
-            <th></th>
+            <th><?= $i?></th>
             <th><?= $user['firstname']?></th>
             <th><?= $user['lastname']?></th>
             <th><?= $user['email']?></th>
             <th><?= $user['phone']?></th>
         </tr>
-    <?php } ?>
+    <?php
+    $i++;
+    } ?>
 
     </tbody>
 
@@ -53,5 +56,5 @@
         <input type="submit" class="btn btn-success btn-send" value="Add contact">
     </div>
 </form>
-<a id="add_contact" href="#">Add contact</a>
+<a id="add_contact" href="#" data-iterator="<?= $i?>">Add contact</a>
 <?php

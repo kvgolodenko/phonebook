@@ -40,7 +40,17 @@ $(document).ready(function () {
             {
                 data: data
             }, function (data) {
-                console.log(data);
+                jsonData = JSON.parse(data);
+                $('#add_form').toggleClass('hidden');
+                iterator = $('#add_contact').data('iterator');
+                $('#userlist tbody').append('<tr>'
+                    + '<th>' + iterator + '</th>'
+                    + '<th>'+ jsonData.firstname + '</th>'
+                    + '<th>' + jsonData.lastname + '</th>'
+                    + '<th>' + jsonData.email + '</th>'
+                    + '<th>' + jsonData.phone + '</th>'
+                    + '</tr>'
+                )
             });
     })
 

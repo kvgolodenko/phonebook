@@ -46,6 +46,6 @@ class UserController extends BaseController implements IController
             $user->setUserId($ownerId);
             $result = $user->save();
         }
-        echo json_encode(['userId' => $_SESSION['user_id']]);
+        echo json_encode($user);
     }
 }
