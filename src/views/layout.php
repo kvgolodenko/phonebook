@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://bootstraptema.ru/snippets/form/2017/recaptcha/custom.css' rel='stylesheet' type='text/css'>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="public/js/public.js"></script>
+    <script src="/public/js/public.js"></script>
     <title><?php echo $title; ?></title>
 </head>
 <body>

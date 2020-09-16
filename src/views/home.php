@@ -19,7 +19,7 @@
     $i = 1;
     foreach ($view['users'] as $user) { ?>
         <tr>
-            <th><?= $i?></th>
+            <th><a href="contact/<?= $user['id']?>"><?= $i?></a></th>
             <th><?= $user['firstname']?></th>
             <th><?= $user['lastname']?></th>
             <th><?= $user['email']?></th>

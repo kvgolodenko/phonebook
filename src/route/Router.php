@@ -10,9 +10,20 @@ class Router
 {
     public $route;
 
+    public $param;
+
     public function __construct()
     {
-        $this->route = $_SERVER['REQUEST_URI'];
+        $this->route = explode('/',$_SERVER['REQUEST_URI'])[1];
+        $this->param = explode('/',$_SERVER['REQUEST_URI'])[2];
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getParam()
+    {
+        return $this->param;
     }
 
     public function getRoute()
@@ -23,27 +34,30 @@ class Router
     public function __invoke()
     {
         switch ($this->route) {
-            case '/':
-            case '/homepage':
+            case '':
+            case 'homepage':
                 (new HomeController())->index();
                 break;
-            case '/login':
+            case 'login':
                 (new LoginController())->index();
                 break;
-            case '/registration':
+            case 'registration':
                 (new RegisterController())->index();
                 break;
-            case '/register':
+            case 'register':
                 (new RegisterController())->register();
                 break;
-            case '/loginCheck':
+            case 'loginCheck':
                 LoginController::loginCheck();
                 break;
-            case '/logout':
+            case 'logout':
                 (new LoginController)->logout();
                 break;
-            case('/addUser'):
+            case('addUser'):
                 (new UserController())->addUser();
+                break;
+            case('contact'):
+                (new UserController())->index();
                 break;
             default:
                 echo '404 No such page ';

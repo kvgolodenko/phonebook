@@ -6,22 +6,28 @@ namespace App\controller;
 
 use App\Interfaces\IController;
 use App\model\User;
+use App\Route\Router;
 
 class UserController extends BaseController implements IController
 {
     public function __construct()
     {
         session_start();
+        parent::__construct();
     }
 
     public function index()
     {
-        // TODO: Implement index() method.
+        $userId = (new Router())->getParam();
+        $user = (new User())->getUserById($userId);
+        $this->setView($user);
     }
 
     public function setView(array $data)
     {
-        // TODO: Implement setView() method.
+        $user = $data;
+        $content = include('src/views/contact.php');
+        return $content;
     }
 
     public static function addUser()
