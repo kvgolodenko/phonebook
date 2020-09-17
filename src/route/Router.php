@@ -58,6 +58,10 @@ class Router
                 break;
             case('editUser'):
                 (new UserController())->editUser();
+                break;
+            case('editUserLogo'):
+                (new UserController())->editUserLogo();
+                break;
             case('contact'):
                 (new UserController())->index();
                 break;

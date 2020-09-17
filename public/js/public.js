@@ -83,6 +83,37 @@ $(document).ready(function () {
                 }
             );
         }
+    });
+
+    var files;
+
+    $('input[type=file]').on('change', function(){
+        files = this.files;
+    });
+
+    $('.logo-form').on('submit',function (e){
+        e.preventDefault();
+        e.stopPropagation();
+        var data = new FormData();
+        data.append('userId',$(this).data('userid'));
+        $.each( files, function( key, value ){
+            data.append( key, value );
+        });
+
+        $.ajax({
+            url: 'editUserLogo',
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            success: function(respond) {
+            },
+            fail: function(textStatus){
+                console.log(textStatus);
+            }
+        });
     })
 
 })

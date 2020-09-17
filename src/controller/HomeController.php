@@ -15,7 +15,6 @@ class HomeController extends BaseController implements IController
         session_start();
         $loggedIn = $_SESSION['user_loggedIn'];
         $userId = $_SESSION['user_id'];
-
         $users = (new User())->getUsersByOwnerId($userId);
 
         if ( ! $loggedIn) {

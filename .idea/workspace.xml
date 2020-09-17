@@ -17,14 +17,9 @@
         <option value="HTML File" />
         <option value="composer.json" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
-    </include_path>
   </component>
   <component name="ProjectId" id="1hDgp47Od7MM9vQUKK704eQonAk" />
   <component name="ProjectViewState">
@@ -36,7 +31,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -58,7 +55,7 @@
       <workItem from="1599590200941" duration="22495000" />
       <workItem from="1599849941495" duration="2556000" />
       <workItem from="1600063356895" duration="24537000" />
-      <workItem from="1600155674127" duration="6842000" />
+      <workItem from="1600155674127" duration="40205000" />
     </task>
     <servers />
   </component>
@@ -78,19 +75,37 @@
       <screen x="0" y="23" width="1280" height="723" />
     </state>
     <state x="378" y="146" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.723@0.23.1280.723" timestamp="1600159591455" />
-    <state x="366" y="117" key="NewPhpClassDialog" timestamp="1600158911323">
-      <screen x="0" y="23" width="1280" height="724" />
+    <state x="100" y="123" width="1080" height="522" key="DiffContextDialog" timestamp="1600241185484">
+      <screen x="0" y="23" width="1280" height="723" />
+    </state>
+    <state x="100" y="123" width="1080" height="522" key="DiffContextDialog/0.23.1280.723@0.23.1280.723" timestamp="1600241185484" />
+    <state x="366" y="117" key="NewPhpClassDialog" timestamp="1600262037814">
+      <screen x="0" y="23" width="1280" height="723" />
     </state>
     <state x="366" y="117" key="NewPhpClassDialog/0.23.1280.722@0.23.1280.722" timestamp="1600065061435" />
+    <state x="366" y="117" key="NewPhpClassDialog/0.23.1280.723@0.23.1280.723" timestamp="1600262037814" />
     <state x="366" y="117" key="NewPhpClassDialog/0.23.1280.724@0.23.1280.724" timestamp="1600158911323" />
-    <state x="459" y="314" key="NewPhpFileDialog" timestamp="1599830701872">
-      <screen x="0" y="23" width="1280" height="722" />
+    <state x="459" y="314" key="NewPhpFileDialog" timestamp="1600243064431">
+      <screen x="0" y="23" width="1280" height="723" />
     </state>
     <state x="459" y="314" key="NewPhpFileDialog/0.23.1280.722@0.23.1280.722" timestamp="1599830701872" />
-    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1600076236068">
+    <state x="459" y="314" key="NewPhpFileDialog/0.23.1280.723@0.23.1280.723" timestamp="1600243064431" />
+    <state x="141" y="23" key="SettingsEditor" timestamp="1600360417304">
+      <screen x="0" y="23" width="1280" height="723" />
+    </state>
+    <state x="141" y="23" key="SettingsEditor/0.23.1280.723@0.23.1280.723" timestamp="1600360417304" />
+    <state x="100" y="123" width="1080" height="522" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1600241185484">
+      <screen x="0" y="23" width="1280" height="723" />
+    </state>
+    <state x="100" y="123" width="1080" height="522" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1280.723@0.23.1280.723" timestamp="1600241185484" />
+    <state x="341" y="110" width="598" height="548" key="find.popup" timestamp="1600354505846">
+      <screen x="0" y="23" width="1280" height="723" />
+    </state>
+    <state x="341" y="110" width="598" height="548" key="find.popup/0.23.1280.723@0.23.1280.723" timestamp="1600354505846" />
+    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1600360587775">
       <screen x="0" y="23" width="1280" height="723" />
     </state>
     <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1280.722@0.23.1280.722" timestamp="1599808203813" />
-    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1280.723@0.23.1280.723" timestamp="1600076236068" />
+    <state x="370" y="303" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1280.723@0.23.1280.723" timestamp="1600360587775" />
   </component>
 </project>

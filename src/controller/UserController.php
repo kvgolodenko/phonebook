@@ -68,4 +68,26 @@ class UserController extends BaseController implements IController
         $user->{$property} = $input;
         $user->save();
     }
+
+    public function editUserLogo()
+    {
+        $files = $_FILES;
+        $userId = $_POST['userId'];
+        $logoDir = 'public/assets/userlogos/' . $userId;
+
+        foreach ($files as $file) {
+            if ($file['type'] !== "image/jpeg" && $file['type'] !== "image/png") {
+                return;
+            }
+        }
+
+        if ( ! is_dir($logoDir)) {
+           mkdir($logoDir);
+        }
+        foreach ($files as $file) {
+            move_uploaded_file($file['tmp_name'], $logoDir . '/' . $file['name']);
+        }
+
+
+    }
 }

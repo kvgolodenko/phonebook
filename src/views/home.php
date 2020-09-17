@@ -7,6 +7,7 @@
     <thead>
     <tr>
         <th scope="col">#</th>
+        <th scope="col">Logo</th>
         <th scope="col">First name</th>
         <th scope="col">Surname</th>
         <th scope="col">Email</th>
@@ -20,6 +21,14 @@
     foreach ($view['users'] as $user) { ?>
         <tr data-userId="<?= $user->id?>">
             <th><a href="contact/<?= $user->id?>"><?= $i?></a></th>
+            <th>
+                <span></span>
+                <form class="logo-form" data-userId="<?= $user->id?>" enctype="multipart/form-data" action="#">
+                    <label for="logofile">Logo</label>
+                    <input name="logofile"type="file">
+                    <input name=""type="submit">
+                </form>
+            </th>
             <th class="firstname" data-property="firstname">
                 <span><?= $user->firstname?></span>
                 <input class="hidden" type="text">
