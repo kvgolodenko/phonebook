@@ -19,7 +19,7 @@ class Model
     public function request($sql, $params = [])
     {
         $query = $this->db_connection->prepare($sql);
-
+var_dump($params);
         try {
             $result = $query->execute($params);
         } catch (\PDOException $exception) {
@@ -29,29 +29,31 @@ class Model
         return $result;
     }
 
-    public function fetch($sql, $params = [])
+    public function fetch($sql, $params = [], $className = 'stdClass')
     {
         $query = $this->db_connection->prepare($sql);
 
         try {
             $query->execute($params);
-            $result = $query->fetch();
+            $result = $query->fetchObject($className);
         } catch (\PDOException $exception) {
             $result = $exception->getMessage();
         }
+
         return $result;
     }
 
-    public function fetchAll($sql, $params = [])
+    public function fetchAll($sql, $params = [], $className = 'stdClass')
     {
         $query = $this->db_connection->prepare($sql);
 
         try {
             $query->execute($params);
-            $result = $query->fetchAll();
+            $result = $query->fetchAll(\PDO::FETCH_CLASS, $className);
         } catch (\PDOException $exception) {
             $result = $exception->getMessage();
         }
+
         return $result;
     }
 

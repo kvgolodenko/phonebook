@@ -18,11 +18,16 @@ class User extends Model
 
     public $phone;
 
-    public $userId;
+    public $user_id;
 
     public function __construct()
     {
         parent::__construct();
+    }
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
     }
 
     /**
@@ -126,7 +131,7 @@ class User extends Model
      */
     public function setUserId($user_id)
     {
-        $this->userId = $user_id;
+        $this->user_id = $user_id;
     }
 
     /**
@@ -134,38 +139,34 @@ class User extends Model
      */
     public function getUserId()
     {
-        return $this->userId;
+        return $this->user_id;
     }
 
-
-    public function save()
+    private function prepareParams()
     {
-        $params = [
+        return [
             ':firstname' => $this->firstname,
             ':lastname' => $this->lastname,
             ':email' => $this->email,
             ':password' => $this->password,
             ':phone' => $this->phone,
-            ':userId' => $this->userId
+            ':user_id' => $this->user_id
         ];
+    }
 
-        $sql = "INSERT INTO users (
-            firstname,
-            lastname,
-            email,
-            password,
-            phone,
-            user_id
-        )
-        VALUES (
-            :firstname,
-            :lastname,
-            :email,
-            :password,
-            :phone,
-            :userId
-        )";
+    public function save()
+    {
+        $params = $this->prepareParams();
 
+
+        if ($id = $this->getId()) {
+            $sql = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email,
+                password = :password, phone = :phone, user_id = :user_id WHERE id = " . $id;
+        } else {
+            $sql = "INSERT INTO users (firstname,lastname,email,password,phone,user_id)
+            VALUES (:firstname,:lastname,:email,:password,:phone,:user_id)";
+        }
+        var_dump($params);
         return $this->request($sql, $params);
     }
 
@@ -194,7 +195,7 @@ class User extends Model
 
         $params = [':id' => $id];
 
-        $result = $this->fetch($sql, $params);
+        $result = $this->fetch($sql, $params, self::class);
 
         return  $result;
     }
@@ -205,76 +206,10 @@ class User extends Model
 
         $params = [':user_id' => $ownerId];
 
-        $result = $this->fetchAll($sql, $params);
+        $result = $this->fetchAll($sql, $params, self::class);
 
         return  $result;
     }
 
-    public function parseNumber($number)
-    {
-        if ($number > 999999999999) {
-            return;
-        }
-        $singleArray = ['','один','два','три','четыре','пять','шесть','семь','восемь','девять'];
-        $decimalArray = ['','одиннадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать'];
-        $decimalBigArray = ['','десять','двадцать','тридцать','сорок','пятьдесят','шестьдесят','семьдесят','восемьдесят','девяносто'];
-        $hundredsArray= ['','сто', 'двести','триста','четыреста','пятсот', 'шестьсот', 'семьсот','восемьсот','девятьсот'];
 
-
-        $array = [];
-        $resultArray = [];
-        $length =  strlen($number);
-
-        for ($i = -3; $i > -$length; $i = $i - 3) {
-            $array[] = substr($number, $i,3);
-        }
-        $array[] = substr($number, 0, $length + $i + 3);
-//        $array = array_reverse($array);
-
-        foreach ($array as $key => $item) {
-            $string = '';
-            switch (strlen($item)) {
-                case 2:
-                    $item = '0'.$item;
-                    break;
-                case 1:
-                    $item = '00'.$item;
-                    break;
-            }
-            for ($i=0;$i<=2;$i++){
-                $number = substr($item,$i,1);
-                switch ($i){
-                    case 0:
-                        $string .= $hundredsArray[$number] .' ';
-                        break;
-                    case 1:
-                        if ($number == 1) {
-                            $decimalNumber = substr($item,$i+1,1);
-                            $string .= $decimalArray[$decimalNumber] . ' ';
-                        } else {
-                            $string .= $decimalBigArray[$number] . ' ';
-                        }
-                        break;
-                    case 2:
-                        if ( ! $decimalNumber) {
-                            $string .= $singleArray[$number] . ' ';
-                        }
-                        break;
-
-                }
-            }
-            switch ($key) {
-                case 0:
-                    break;
-                case 1:
-                    $string .='тысячи ';
-                    break;
-                case 2:
-                    $string .='миллиона ';
-                    break;
-            }
-            $resultArray[] = $string;
-        }
-        return implode(array_reverse($resultArray));
-    }
 }

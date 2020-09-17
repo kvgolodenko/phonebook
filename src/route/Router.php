@@ -56,6 +56,8 @@ class Router
             case('addUser'):
                 (new UserController())->addUser();
                 break;
+            case('editUser'):
+                (new UserController())->editUser();
             case('contact'):
                 (new UserController())->index();
                 break;

@@ -18,12 +18,24 @@
     <?php
     $i = 1;
     foreach ($view['users'] as $user) { ?>
-        <tr>
-            <th><a href="contact/<?= $user['id']?>"><?= $i?></a></th>
-            <th><?= $user['firstname']?></th>
-            <th><?= $user['lastname']?></th>
-            <th><?= $user['email']?></th>
-            <th><?= $user['phone']?></th>
+        <tr data-userId="<?= $user->id?>">
+            <th><a href="contact/<?= $user->id?>"><?= $i?></a></th>
+            <th class="firstname" data-property="firstname">
+                <span><?= $user->firstname?></span>
+                <input class="hidden" type="text">
+            </th>
+            <th class="lastname" data-property="lastname">
+                <span><?= $user->lastname?></span>
+                <input class="hidden" type="text">
+            </th>
+            <th class="email" data-property="email">
+                <span><?= $user->email?></span>
+                <input class="hidden" type="text">
+            </th>
+            <th class="phone" data-property="phone">
+                <span><?= $user->phone?></span>
+                <input class="hidden" type="text">
+            </th>
         </tr>
     <?php
     $i++;

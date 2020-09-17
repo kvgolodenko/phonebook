@@ -1,10 +1,3 @@
-<?php
-$number = '34334455';
-$string = (new \App\model\User())->parseNumber($number);
-echo '<pre>';
-var_dump($string);
-echo '</pre>';
-?>
 <table id="userlist" class="table">
     <thead>
     <tr>
@@ -17,10 +10,10 @@ echo '</pre>';
 
     <tbody>
         <tr>
-            <th><?= $user['firstname']?></th>
-            <th><?= $user['lastname']?></th>
-            <th><?= $user['email']?></th>
-            <th><?= $user['phone']?></th>
+            <th><?= $user->firstname?></th>
+            <th><?= $user->lastname?></th>
+            <th><?= $user->email?></th>
+            <th><?= $user->phone?></th>
         </tr>
 
     </tbody>

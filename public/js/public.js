@@ -51,7 +51,38 @@ $(document).ready(function () {
                     + '<th>' + jsonData.phone + '</th>'
                     + '</tr>'
                 )
-            });
+            }
+        );
+    })
+
+    $('th').on('click', function (e){
+        var span = $(this).children('span');
+        var input = $(this).children('input');
+        span.toggleClass('hidden');
+        input.toggleClass('hidden');
+        input.val(span.html());
+        input.focus();
+    });
+
+    $('#userlist th input').on('keyup', function (e){
+        key = e.originalEvent.key;
+        value = $(this).val();
+        id = $(this).parent().parent().data('userid');
+        property = $(this).parent().data('property');
+        span = $(this).prev('span');
+        if (key == 'Enter') {
+            $(this).toggleClass('hidden');
+            span.toggleClass('hidden');
+            $.post("editUser",
+                {
+                    input: value,
+                    property: property,
+                    id: id
+                }, function (data) {
+                    span.html(value);
+                }
+            );
+        }
     })
 
 })

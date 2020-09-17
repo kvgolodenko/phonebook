@@ -7,9 +7,12 @@ namespace App\controller;
 use App\Interfaces\IController;
 use App\model\User;
 use App\Route\Router;
+use App\traits\Helper;
 
 class UserController extends BaseController implements IController
 {
+    use Helper;
+
     public function __construct()
     {
         session_start();
@@ -20,12 +23,13 @@ class UserController extends BaseController implements IController
     {
         $userId = (new Router())->getParam();
         $user = (new User())->getUserById($userId);
-        $this->setView($user);
+        $user->phone = $this->parseNumber($user->phone);
+        $this->setView(['user' => $user]);
     }
 
     public function setView(array $data)
     {
-        $user = $data;
+        $user = $data['user'];
         $content = include('src/views/contact.php');
         return $content;
     }
@@ -53,5 +57,15 @@ class UserController extends BaseController implements IController
             $result = $user->save();
         }
         echo json_encode($user);
+    }
+
+    public function editUser()
+    {
+        $userId = $_POST['id'];
+        $property = $_POST['property'];
+        $input = $_POST['input'];
+        $user = (new User())->getUserById($userId);
+        $user->{$property} = $input;
+        $user->save();
     }
 }
