@@ -9,7 +9,7 @@
     <link href='https://bootstraptema.ru/snippets/form/2017/recaptcha/custom.css' rel='stylesheet' type='text/css'>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="/public/js/public.js"></script>
-    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
     <title><?php echo $title; ?></title>
 </head>
 <body>

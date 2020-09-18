@@ -89,11 +89,13 @@ $(document).ready(function () {
 
     $('input[type=file]').on('change', function(){
         files = this.files;
+        $(this).parent().submit();
     });
 
     $('.logo-form').on('submit',function (e){
         e.preventDefault();
         e.stopPropagation();
+        var img_block = $(this).prev('.logoblock');
         var data = new FormData();
         data.append('userId',$(this).data('userid'));
         $.each( files, function( key, value ){
@@ -108,7 +110,8 @@ $(document).ready(function () {
             dataType: 'json',
             processData: false,
             contentType: false,
-            success: function(respond) {
+            success: function(data) {
+                img_block.html('<img class="logo-img" src=' + data +'>');
             },
             fail: function(textStatus){
                 console.log(textStatus);

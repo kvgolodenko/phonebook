@@ -20,6 +20,8 @@ class User extends Model
 
     public $user_id;
 
+    public $uuid;
+
     public function __construct()
     {
         parent::__construct();
@@ -142,6 +144,22 @@ class User extends Model
         return $this->user_id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @param mixed $uuid
+     */
+    public function setUuid($uuid)
+    {
+        $this->uuid = $uuid;
+    }
+
     private function prepareParams()
     {
         return [
@@ -150,7 +168,8 @@ class User extends Model
             ':email' => $this->email,
             ':password' => $this->password,
             ':phone' => $this->phone,
-            ':user_id' => $this->user_id
+            ':user_id' => $this->user_id,
+            ':uuid' => $this->uuid
         ];
     }
 
@@ -161,12 +180,12 @@ class User extends Model
 
         if ($id = $this->getId()) {
             $sql = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email,
-                password = :password, phone = :phone, user_id = :user_id WHERE id = " . $id;
+                password = :password, phone = :phone, user_id = :user_id, uuid = :uuid WHERE id = " . $id;
         } else {
-            $sql = "INSERT INTO users (firstname,lastname,email,password,phone,user_id)
-            VALUES (:firstname,:lastname,:email,:password,:phone,:user_id)";
+            $sql = "INSERT INTO users (firstname,lastname,email,password,phone,user_id, uuid)
+            VALUES (:firstname,:lastname,:email,:password,:phone,:user_id, :uuid)";
         }
-        var_dump($params);
+
         return $this->request($sql, $params);
     }
 
@@ -209,6 +228,23 @@ class User extends Model
         $result = $this->fetchAll($sql, $params, self::class);
 
         return  $result;
+    }
+
+    public function getUserLogoPath()
+    {
+        $folder = 'public/assets/userlogos/' . $this->getId();
+
+        if ( ! is_dir($folder)) {
+            return '';
+        }
+        $files = scandir($folder);
+
+        foreach ($files as $file) {
+            $filenameArr = explode('.',$file);
+            if ($filenameArr[0] == $this->getUuid()) {
+                return $folder . '/'.$file;
+            }
+        }
     }
 
 

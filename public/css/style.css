@@ -1,0 +1,10 @@
+th {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+.logo-img {
+    width: 100px;
+}

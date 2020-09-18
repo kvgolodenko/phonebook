@@ -60,7 +60,7 @@ class Router
                 (new UserController())->editUser();
                 break;
             case('editUserLogo'):
-                (new UserController())->editUserLogo();
+                UserController::editUserLogo();
                 break;
             case('contact'):
                 (new UserController())->index();

@@ -54,7 +54,7 @@ class UserController extends BaseController implements IController
             $user->setPhone($phone);
             $user->setEmail($email);
             $user->setUserId($ownerId);
-            $result = $user->save();
+            $user->save();
         }
         echo json_encode($user);
     }
@@ -69,25 +69,41 @@ class UserController extends BaseController implements IController
         $user->save();
     }
 
-    public function editUserLogo()
+    public static function editUserLogo()
     {
         $files = $_FILES;
         $userId = $_POST['userId'];
         $logoDir = 'public/assets/userlogos/' . $userId;
+        $uuid = uniqid();
 
         foreach ($files as $file) {
             if ($file['type'] !== "image/jpeg" && $file['type'] !== "image/png") {
+                return;
+            }
+            if ($file['size'] > 2097152) {
                 return;
             }
         }
 
         if ( ! is_dir($logoDir)) {
            mkdir($logoDir);
+        } else {
+            $oldFiles = scandir($logoDir);
+            foreach ($oldFiles as $oldFile) {
+                unlink($logoDir .'/'.$oldFile);
+            }
         }
+
         foreach ($files as $file) {
-            move_uploaded_file($file['tmp_name'], $logoDir . '/' . $file['name']);
+            $fileExt = explode('.',$file['name'])[1];
+            $filename = $uuid . '.'.$fileExt;
+            move_uploaded_file($file['tmp_name'], $logoDir . '/' . $filename);
+            chmod($logoDir . '/'.$filename, 0777);
+            /** @var User $user */
+            $user = (new User())->getUserById($userId);
+            $user->setUuid($uuid);
+            $user->save();
         }
-
-
+        echo json_encode($user->getUserLogoPath());
     }
 }

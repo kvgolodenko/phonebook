@@ -19,7 +19,7 @@ class Model
     public function request($sql, $params = [])
     {
         $query = $this->db_connection->prepare($sql);
-var_dump($params);
+
         try {
             $result = $query->execute($params);
         } catch (\PDOException $exception) {

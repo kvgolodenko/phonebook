@@ -22,11 +22,13 @@
         <tr data-userId="<?= $user->id?>">
             <th><a href="contact/<?= $user->id?>"><?= $i?></a></th>
             <th>
-                <span></span>
+                <div class="logoblock">
+                    <img class="logo-img" src="<?= $user->getUserLogoPath()?>">
+                </div>
                 <form class="logo-form" data-userId="<?= $user->id?>" enctype="multipart/form-data" action="#">
-                    <label for="logofile">Logo</label>
-                    <input name="logofile"type="file">
-                    <input name=""type="submit">
+                    <label for="logofile<?=$user->id?>">Change Logo</label>
+                    <input id="logofile<?=$user->id?>" name="logofile" type="file" class="hidden">
+                    <input name=""type="submit" class="hidden">
                 </form>
             </th>
             <th class="firstname" data-property="firstname">
