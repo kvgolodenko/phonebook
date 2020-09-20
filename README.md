@@ -1,3 +1,3 @@
 # phonebook
-db dump /src/database
+db dump: /src/database
 
