@@ -1,19 +1,10 @@
 FROM php:5.5.38-fpm
 
-# Set the working directory.
+COPY . /usr/src/app
+
 WORKDIR /usr/src/app
 
-# Copy the file from your host to your current location.
-COPY package.json .
+CMD ["php-fpm"]
 
-# Run the command inside your image filesystem.
-RUN npm install
+EXPOSE 80
 
-# Add metadata to the image to describe which port the container is listening on at runtime.
-EXPOSE 8080
-
-# Run the specified command within the container.
-CMD [ "npm", "start" ]
-
-# Copy the rest of your app's source code from your host to your image filesystem.
-COPY . .

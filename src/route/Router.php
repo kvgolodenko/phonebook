@@ -54,7 +54,7 @@ class Router
                 (new LoginController)->logout();
                 break;
             case('addUser'):
-                (new UserController())->addUser();
+                UserController::addUser();
                 break;
             case('editUser'):
                 (new UserController())->editUser();

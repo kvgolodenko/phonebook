@@ -36,12 +36,13 @@ class UserController extends BaseController implements IController
 
     public static function addUser()
     {
-        $data = $_POST['data'];
+        session_start();
+        $data = $_POST['formData'];
         $res = [];
         parse_str($data,$res);
 
-        $firstname = $res['name'];
-        $lastname = $res['surname'];
+        $firstname = $res['firstname'];
+        $lastname = $res['lastname'];
         $phone = $res['phone'];
         $email = $res['email'];
         $ownerId = $_SESSION['user_id'];
@@ -55,6 +56,16 @@ class UserController extends BaseController implements IController
             $user->setEmail($email);
             $user->setUserId($ownerId);
             $user->save();
+            $lastId = $user->getLastId();
+            $path = false;
+
+            if ($_FILES) {
+               $path = self::editUserLogo($lastId, false);
+            }
+
+            if ($path) {
+                $user->setLogopath($path);
+            }
         }
         echo json_encode($user);
     }
@@ -69,10 +80,14 @@ class UserController extends BaseController implements IController
         $user->save();
     }
 
-    public static function editUserLogo()
+    public static function editUserLogo($userId = null, $json = true)
     {
         $files = $_FILES;
-        $userId = $_POST['userId'];
+
+        if ( ! $userId) {
+            $userId = $_POST['userId'];
+        }
+
         $logoDir = 'public/assets/userlogos/' . $userId;
         $uuid = uniqid();
 
@@ -104,6 +119,11 @@ class UserController extends BaseController implements IController
             $user->setUuid($uuid);
             $user->save();
         }
-        echo json_encode($user->getUserLogoPath());
+
+        if ($json) {
+            echo json_encode($user->getUserLogoPath());
+        } else {
+            return $user->getUserLogoPath();
+        }
     }
 }

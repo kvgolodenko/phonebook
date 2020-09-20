@@ -29,17 +29,16 @@ class LoginController extends BaseController implements IController
         $data = $_POST['data'];
         $res = [];
         parse_str($data,$res);
-
         $login = $res['email'];
         $password = $res['password'];
         $user = (new User())->getUserByEmail($login);
 
         if ($user) {
-            $passwordVerify = password_verify($password, $user['password']);
+            $passwordVerify = password_verify($password, $user->password);
 
             if ($passwordVerify) {
                 $_SESSION['user_loggedIn'] = true;
-                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_id'] = $user->id;
                 $status = 1;
                 $userLoggedIn = true;
             } else {

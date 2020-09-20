@@ -12,16 +12,36 @@ class Model
 
     protected $model;
 
+    public $lastId;
+
     public function __construct()
     {
         $this->db_connection = DB::getInstance()->getConnection();
     }
+
+    /**
+     * @param mixed $lastId
+     */
+    public function setLastId($lastId)
+    {
+        $this->lastId = $lastId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastId()
+    {
+        return $this->lastId;
+    }
+
     public function request($sql, $params = [])
     {
         $query = $this->db_connection->prepare($sql);
 
         try {
             $result = $query->execute($params);
+            $this->setLastId($this->db_connection->lastInsertId());
         } catch (\PDOException $exception) {
             $result = $exception->getMessage();
         }

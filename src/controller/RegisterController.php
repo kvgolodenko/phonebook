@@ -6,10 +6,12 @@ namespace App\Controller;
 
 use App\Interfaces\IController;
 use App\model\User;
-use http\QueryString;
+use App\traits\Helper;
 
 class RegisterController extends BaseController implements IController
 {
+    use Helper;
+
     public function __construct()
     {
         parent::__construct();
@@ -36,12 +38,23 @@ class RegisterController extends BaseController implements IController
         $res = [];
         parse_str($data,$res);
 
-        $firstname = $res['name'];
-        $lastname = $res['surname'];
+        $firstname = $res['firstname'];
+        $lastname = $res['lastname'];
         $phone = $res['phone'];
         $email = $res['email'];
         $password = $res['password'];
+        $rep_password = $res['rep_password'];
 
+        $validate = $this->validate($res);
+
+        if ( ! is_bool($validate)) {
+            echo json_encode($validate);
+            return;
+        }
+
+        if ($password !== $rep_password) {
+            return;
+        }
         $user = new User();
 
         if ( ! $user->checkExistingUser($email)) {

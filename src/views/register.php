@@ -6,7 +6,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="form_name">Firstname *</label>
-                        <input id="form_name" type="text" name="name" class="form-control"
+                        <input id="form_name" type="text" name="firstname" class="form-control"
                                placeholder="Please enter your firstname *" required="required"
                                data-error="Firstname is required.">
                         <div class="help-block with-errors"></div>
@@ -15,7 +15,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="form_lastname">Lastname *</label>
-                        <input id="form_lastname" type="text" name="surname" class="form-control"
+                        <input id="form_lastname" type="text" name="lastname" class="form-control"
                                placeholder="Please enter your lastname *" required="required"
                                data-error="Lastname is required.">
                         <div class="help-block with-errors"></div>

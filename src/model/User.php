@@ -22,6 +22,8 @@ class User extends Model
 
     public $uuid;
 
+    public $logopath;
+
     public function __construct()
     {
         parent::__construct();
@@ -160,6 +162,22 @@ class User extends Model
         $this->uuid = $uuid;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLogopath()
+    {
+        return $this->logopath;
+    }
+
+    /**
+     * @param mixed $logopath
+     */
+    public function setLogopath($logopath)
+    {
+        $this->logopath = $logopath;
+    }
+
     private function prepareParams()
     {
         return [
@@ -191,7 +209,7 @@ class User extends Model
 
     public function checkExistingUser($usermail)
     {
-        $sql = "SELECT id FROM users WHERE email = :email LIMIT 1 OFFSET 0";
+        $sql = "SELECT password FROM users WHERE email = :email LIMIT 1 OFFSET 0";
         $params = [':email' => $usermail];
 
         return $this->fetch($sql, $params);
@@ -230,9 +248,13 @@ class User extends Model
         return  $result;
     }
 
-    public function getUserLogoPath()
+    public function getUserLogoPath($id = null)
     {
-        $folder = 'public/assets/userlogos/' . $this->getId();
+        if ( ! $id) {
+            $id = $this->getId();
+        }
+
+        $folder = 'public/assets/userlogos/' . $id;
 
         if ( ! is_dir($folder)) {
             return '';

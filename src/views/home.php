@@ -27,7 +27,7 @@
                 </div>
                 <form class="logo-form" data-userId="<?= $user->id?>" enctype="multipart/form-data" action="#">
                     <label for="logofile<?=$user->id?>">Change Logo</label>
-                    <input id="logofile<?=$user->id?>" name="logofile" type="file" class="hidden">
+                    <input id="logofile<?=$user->id?>" name="logofile" type="file" class="editlogo hidden">
                     <input name=""type="submit" class="hidden">
                 </form>
             </th>
@@ -55,14 +55,14 @@
     </tbody>
 
 </table>
-<form id="add_form" action="#" class="hidden">
+<form id="add_form" action="#" class="hidden" enctype="multipart/form-data">
     <label for="form_name">Name *</label>
-    <input id="form_name" type="text" name="name" class="form-control"
+    <input id="form_name" type="text" name="firstname" class="form-control"
            placeholder="Please enter firstname *" required="required"
            data-error="Firstname is required.">
     <div class="help-block with-errors"></div>
     <label for="form_name">Surname *</label>
-    <input id="form_name" type="text" name="surname" class="form-control"
+    <input id="form_name" type="text" name="lastname" class="form-control"
            placeholder="Please enter surname *" required="required"
            data-error="Firstname is required.">
     <div class="help-block with-errors"></div>
@@ -71,9 +71,11 @@
            placeholder="Please enter email *" required="required"
            data-error="Valid email is required.">
     <div class="help-block with-errors"></div>
-    <label for="form_phone">Phone</label>
+    <label for="form_phone">Phone *</label>
     <input id="form_phone" type="tel" name="phone" class="form-control"
-           placeholder="Please enter phone">
+           placeholder="Please enter phone" required="required">
+    <label for="form_file">Logo *</label>
+    <input id="form_file" type="file">
     <div class="help-block with-errors"></div>
     <div class="col-md-12">
         <input type="submit" class="btn btn-success btn-send" value="Add contact">

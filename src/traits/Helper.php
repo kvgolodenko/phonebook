@@ -79,4 +79,28 @@ trait Helper
         }
         return implode(array_reverse($resultArray));
     }
+
+    public function validate(array $data)
+    {
+        $passwordRegExp = '/^(?=.*\d)(?=.*[a-z])[a-z0-9]+$/';
+
+        $isEmail = (bool) filter_var($data['email'], FILTER_VALIDATE_EMAIL);
+        $isPass = preg_match($passwordRegExp, $data['password']);
+
+        $result = '';
+
+        if ( ! $isEmail) {
+            $result .= 'Email is incorect.';
+        }
+
+        if ( ! $isPass) {
+            $result .= 'Password should contain symbols and numbers';
+        }
+
+        if ($isPass && $isEmail) {
+            $result = true;
+        }
+
+        return $result;
+    }
 }
