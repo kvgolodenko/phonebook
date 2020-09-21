@@ -55,7 +55,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <!-- Replace data-sitekey with your own one, generated at https://www.google.com/recaptcha/admin -->
-<!--                        <div class="g-recaptcha" data-sitekey="6Lcp_soZAAAAAIH7P_X70gyxS3NbOaxkiqS7vW-t"></div>-->
+                        <div class="g-recaptcha" data-sitekey="6Lcp_soZAAAAAIH7P_X70gyxS3NbOaxkiqS7vW-t"></div>
                     </div>
                 </div>
 
